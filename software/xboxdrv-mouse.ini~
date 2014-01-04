@@ -10,7 +10,6 @@
 
 
 [xboxdrv]
-evdev=/dev/input/event3
 silent=true
 deadzone=6000
 dpad-as-button=true
@@ -23,23 +22,20 @@ ABS_RX=x2
 ABS_RY=y2
 
 [ui-axismap]
-#x1^dead:4000 = REL_X:750:2
-#y1^dead:4000 = REL_Y:750:-2
-x1=REL_X:10
-y1=REL_Y:-10
-x2=KEY_LEFT:KEY_RIGHT
-y2=KEY_DOWN:KEY_UP
+x1^dead:4000^invert = REL_X:-10
+y1^dead:4000 = REL_Y:10
+#x2=KEY_LEFT:KEY_RIGHT
+#y2=KEY_DOWN:KEY_UP
 
-# y2^dead:6000^invert = REL_WHEEL:5:100
-# x2^dead:6000 = REL_HWHEEL:5:100
-# trigger^invert=REL_WHEEL:5:100
+y2^dead:6000^invert = REL_WHEEL:5:100
+x2^dead:6000 = REL_HWHEEL:5:100
 
 #y2^dead:6000= rel-repeat:REL_WHEEL:1:50
 #x2^dead:6000 = rel-repeat:REL_HWHEEL:1:50
 # trigger^invert = rel-repeat:REL_WHEEL:1:50
 
-#lt = BTN_TL:20
-#rt = BTN_TR:20
+lt = BTN_TL:20
+rt = BTN_TR:20
 
 [evdev-keymap]
 BTN_A=a
@@ -67,11 +63,12 @@ b=BTN_RIGHT
 #rb=KEY_KP2
 #lt=KEY_KP6
 #lb=KEY_KP4
-lb = KEY_F1
-rb = KEY_F2
+lb = KEY_F4
+rb = KEY_F5
 lt = KEY_F7
 rt = KEY_F8
-back=KEY_LEFTSHIFT
-guide=KEY_F12
+back=KEY_BACKSPACE
+start=KEY_POWER
+guide=KEY_F6
 
 # EOF #
