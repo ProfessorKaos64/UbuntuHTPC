@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=MOUSE_STOP
+Comment=xbox mouse
+Exec=sudo killall xboxdrv 
+Icon=
+Terminal=false
+Type=Application
+Categories=Network;FileTransfer;Game;
+
+
+

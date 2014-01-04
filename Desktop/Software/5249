@@ -1,0 +1,61 @@
+#!/bin/bash
+#Encrypted Blu-Ray player setup for Ubuntu
+#Allows encrypted blu-rays to be played in VLC and XBMC
+#Written by Quidsup
+#Last Edited 19 May 2013
+
+echo "Encrypted Blu-Ray player setup for VLC and XBMC"
+echo
+echo "Do you want to add repository to install latest version of VLC? (Y/n)?"
+echo "This is Optional, as the Ubuntu provided version of VLC works with Blu-Ray's"
+read Choice
+echo
+
+case $Choice in
+  "y" | "Y" | "yes" | "YES" ) 
+    if [[ $(lsb_release -rs) = 12.04 ]]; then
+      echo "Adding repository for 12.04 version of VLC"
+      sudo add-apt-repostitory ppa:n-muench/vlc2
+    else
+      echo "Adding current repository for VLC"
+      sudo add-apt-repostitory ppa:n-muench/vlc
+    fi
+    
+    sudo apt-get update
+  ;;
+esac
+
+echo
+echo "Installing VLC and libbluray packages"
+echo
+sudo apt-get -y -m install vlc libaacs0 libbluray-bdj libbluray1
+
+echo
+echo "Creating AACS folder under ~/.config"
+echo
+mkdir -p ~/.config/aacs/
+cd ~/.config/aacs/
+
+echo "Downloading KEYSDB.cfg"
+wget http://vlc-bluray.whoknowsmy.name/files/KEYDB.cfg
+
+if [ -f ~/.config/aacs/KEYDB.cfg ]; then
+  echo "Successfully downloaded KEYSDB.cfg"
+else
+  echo "Failed to download KEYSDB.cfg"
+  echo "Attempting to download from mirror site"
+  wget http://vlc-aacs.whoknowsmy.name/files/KEYDB.cfg
+
+  if [ -f ~/.config/aacs/KEYDB.cfg ]; then
+    echo "Successfully downloaded KEYSDB.cfg from mirror site"
+  else 
+    echo
+    echo "Unable to download KEYSDB.cfg"
+    echo "Try looking on Google for an alternate copy of KEYSDB.cfg"
+    exit
+  fi
+fi
+
+echo
+echo "Encrypted Blu-Ray player setup Script complete"
+echo "You may need to reboot to make changes take effect"

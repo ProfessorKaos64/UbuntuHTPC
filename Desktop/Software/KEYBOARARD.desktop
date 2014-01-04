@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=MOUSE_START
+Comment=xbox mouse
+Exec=sudo xboxdrv --config xboxdrv-mouse.ini
+Icon=
+Terminal=false
+Type=Application
+Categories=Network;FileTransfer;Game;
+
+
+
