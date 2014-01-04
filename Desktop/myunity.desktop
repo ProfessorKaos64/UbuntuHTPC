@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=MyUnity
+Comment=Configuratore per Unity
+Exec=myunity
+Icon=myunity
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Accessibility;Utility;Settings;X-GNOME-Settings-Panel;X-GNOME-PersonalSettings;
+OnlyShowIn=Unity;
+X-GNOME-Settings-Panel=myunity
